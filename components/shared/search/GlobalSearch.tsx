@@ -39,30 +39,30 @@ const GlobalSearch = () => {
     };
   }, [pathname]);
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      if (search) {
-        const newUrl = formUrlQuery({
-          params: searchParams.toString(),
-          key: "global",
-          value: search,
-        });
+  // useEffect(() => {
+  //   const delayDebounceFn = setTimeout(() => {
+  //     if (search) {
+  //       const newUrl = formUrlQuery({
+  //         params: searchParams.toString(),
+  //         key: "global",
+  //         value: search,
+  //       });
 
-        router.push(newUrl, { scroll: false });
-      } else {
-        if (query) {
-          const newUrl = removeKeysFromQuery({
-            params: searchParams.toString(),
-            keysToRemove: ["global", "type"],
-          });
+  //       router.push(newUrl, { scroll: false });
+  //     } else {
+  //       if (query) {
+  //         const newUrl = removeKeysFromQuery({
+  //           params: searchParams.toString(),
+  //           keysToRemove: ["global", "type"],
+  //         });
 
-          router.push(newUrl, { scroll: false });
-        }
-      }
-    }, 300);
+  //         router.push(newUrl, { scroll: false });
+  //       }
+  //     }
+  //   }, 300);
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [search, router, pathname, searchParams, query]);
+  //   return () => clearTimeout(delayDebounceFn);
+  // }, [search, router, pathname, searchParams, query]);
 
   return (
     <div
@@ -91,7 +91,7 @@ const GlobalSearch = () => {
           className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
         />
       </div>
-      {isOpen && <GlobalResult />}
+      {/* {isOpen && <GlobalResult />} */}
     </div>
   );
 };
