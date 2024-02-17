@@ -73,9 +73,11 @@ export async function deleteUser(params: DeleteUserParams) {
 
     // if user exists we have to delete all data related to this user
     // 1. get all questions' IDs of this user
-    const userQuestionsIds = await Question.find({ author: user._id }).distinct(
-      "_id"
-    );
+
+    // dont forget to uncomment this code
+    // const userQuestionsIds = await Question.find({ author: user._id }).distinct(
+    //   "_id"
+    // );
     // delete all questions of this user
     await Question.deleteMany({ author: user._id });
 
